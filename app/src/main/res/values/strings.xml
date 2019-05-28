@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CSMArquitecture</string>
+
+    <!--<string name="base_url">http://development-lap.ws.solera.pe/</string>-->
+    <string name="base_url">http://services.groupkt.com/</string>
+</resources>
