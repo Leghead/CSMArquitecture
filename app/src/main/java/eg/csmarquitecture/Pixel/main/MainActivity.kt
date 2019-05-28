@@ -1,28 +1,20 @@
 package eg.csmarquitecture.Pixel.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import eg.csmarquitecture.BE.StoreBE
-import eg.csmarquitecture.BL.StoreBL
+import eg.csmarquitecture.Pixel.store.StoreActivity
 import eg.csmarquitecture.R
-import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_store.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mierdas: StoreBE.StoreBE
-    private var observer: Disposable? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_store)
 
-        observer = StoreBL.fetchStores {
-            this.mierdas = it.tResponse.result[0]
-            txvMierda.text = mierdas.name
-            btnMierda.animate().alpha(0f)
+        btnCTM.setOnClickListener {
+            startActivity(Intent(this, StoreActivity::class.java))
         }
-
-        //observer?.dispose()
     }
 }
