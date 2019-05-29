@@ -21,7 +21,7 @@ class StoreWS {
             disposable = airportApi.fetchStores()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { jsonString ->
+                .map { jsonString : String ->
                     val json     = JSONObject(jsonString)
                     val response= json.getJSONObject("RestResponse")
                     //val messages= response.getJSONArray("messages").getString(0)
