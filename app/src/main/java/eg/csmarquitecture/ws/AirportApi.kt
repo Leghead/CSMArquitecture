@@ -1,7 +1,6 @@
-package eg.csmarquitecture.WS
+package eg.csmarquitecture.ws
 
-import eg.csmarquitecture.WS.Constants.Companion.base_url
-import io.reactivex.Observable
+import eg.csmarquitecture.general.Constants.Companion.base_url
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

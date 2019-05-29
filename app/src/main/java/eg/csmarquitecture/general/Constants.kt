@@ -1,4 +1,4 @@
-package eg.csmarquitecture.WS
+package eg.csmarquitecture.general
 
 class Constants {
 

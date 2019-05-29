@@ -1,4 +1,4 @@
-package eg.csmarquitecture.Pixel.store
+package eg.csmarquitecture.pixel.store
 
 import android.os.Bundle
 import android.os.Handler
@@ -6,10 +6,8 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import eg.csmarquitecture.BE.Country
-import eg.csmarquitecture.BE.Country.CountryBE
-import eg.csmarquitecture.BE.StoreBE
-import eg.csmarquitecture.BL.StoreBL
+import eg.csmarquitecture.be.Country.CountryBE
+import eg.csmarquitecture.bl.StoreBL
 import eg.csmarquitecture.R
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,16 +31,18 @@ class StoreActivity : AppCompatActivity() , View.OnClickListener{
                 if (observer != null){
                     observer?.dispose()
                 }
-                observer = StoreBL.fetchStores {
+                observer = StoreBL.fetchStores({
                     handler.postDelayed({
-                        Log.d("MIERDA", "CORRECTA")
+                        Log.d("RESPUESTA - ", "CORRECTA")
                         mierdas.clear()
                         mierdas.addAll(it)
                         for (i in mierdas){
                             Log.d("NOMBRE :", i.name)
                         }
                     }, 3000)
-                }
+                }, {
+                    Log.d("RESPUESTA - ", "ERROR $it")
+                })
             }
         }
     }
